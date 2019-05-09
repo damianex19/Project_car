@@ -12,6 +12,7 @@
 
 #include "leds.h"
 
+
 static portTASK_FUNCTION_PROTO( vLedRedTestTask, pvParameters );
 static portTASK_FUNCTION_PROTO( vLedBlueTestTask, pvParameters );
 static portTASK_FUNCTION_PROTO( vLedGreenTestTask, pvParameters );
@@ -45,9 +46,12 @@ void vLedsBlinkStop( void )
 
 static portTASK_FUNCTION( vLedRedTestTask, pvParameters )
 {
+    button_init();
+
     for( ;; )
     {
-        leds_toggle( LEDS_GREEN );
-        vTaskDelay( 500 / portTICK_PERIOD_MS );
+        
+        //leds_toggle( LEDS_GREEN );
+        vTaskDelay( 50 / portTICK_PERIOD_MS );
     }
 }
